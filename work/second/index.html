@@ -21,12 +21,21 @@
     </div>
     <script src="../../common/js/jquery.js"></script>
     <script>
-      $(function( {
+      $(function() {
       // 今回やるのはモーダルです。
       // .modal-show をクリックすることで .modal をfadeInさせる。
-        $("modal-show").click(function(){ 
-          $(this).fadeIn();
+        $('.modal-show').click(function(){ 
+          $('.modal').fadeIn();
         })
+        $('.modal-close').click(function(){
+          $('.modal').fadeOut();
+        })
+       //要素modal-showをクリックした時に実行される関数。
+      //要素modalがフェードインされるように指定している。
+      //次に要素modal-closeをクリックした時に実行される関数を書いている。
+      //要素modalが一定時間かけてフェードアウトされる。
+
+
       // .modal-close をクリックで .modal をfadeOutさせる。
       // .click() クリック時のイベントを登録する。
       // .fadeIn() 一定時間かけてフェードインする。

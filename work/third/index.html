@@ -24,6 +24,21 @@
     </div>
     <script src="../../common/js/jquery.js"></script>
     <script>
+      $(function(){
+        $('.nav').find('li').click(function(){
+          var navindex = $(this).index();
+          $('.contents li').addClass('is-hidden');
+          $('.contents li').eq(navindex).removeClass('is-hidden');
+          // navクラスの子要素liをクリックした時の処理をclickメソッドで指定している
+          // 変数navindexにDOMで指定したnavの子要素liのインデックスを取得して代入
+          // contentsクラスの子要素liにaddClassメソッドでクラスis-hiddenを追加する。
+          // その下でeqメソッドを使ってcontentsクラスの子要素liのインデックスを取得
+          // この時、eqメソッドの引数に変数navindexの値が指定されているので、
+          // クリックされたnavクラスの子要素liのインデックスに対応したインデックスを持つ子要素が指定されている
+          // ここで指定された要素liから、removeClassメソッドでクラスis-hiddenを削除し、文字列が表示される
+
+        });
+      });
       // 今回やるのはタブメニューです。
       // navの小要素であるliをクリックして、contents内の小要素であるli要素を表示させる。
       // .index() 要素のindexを取得します。
