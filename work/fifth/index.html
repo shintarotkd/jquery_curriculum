@@ -84,6 +84,38 @@
     </div>
     <script src="../../common/js/jquery.js"></script>
     <script>
+      $(function(){
+        $('.select').change(function(){
+          var val = $(this).val();
+          if (val == 'all') {
+            $('ul.list li').each(function(){$(this).show();} );
+          } else {
+            $('ul.list li').each(function(){
+              if($(this).data('category-type') == val){
+                $(this).show();
+              } else {
+                $(this).hide();
+              };
+            });
+          };
+        });
+      });
+
+      // ●selectクラスの値が変わった時に行われる処理をchangeメソッドで指定している。
+      // 変数valにvalメソッドで取得したDOMのvalueを代入している。
+      // if文でDOMのバリューがallの時、全てのリストが表示されるように処理を指定している。
+      // この時、listクラスの子要素liに対しeachメソッドでli要素１つずつにループ処理が行われるようにする。
+      // その引数に、DOM要素（this)を表示する処理をshowメソッドで指定しているので、結果全てのリストが表示される。
+
+      // selectクラスのバリューがallではなかった時の処理として、まずDOMにlistクラスの子要素liを指定して、
+      // eachメソッドでli１つずつに行う処理を指定する。その処理としてif文でliのカテゴリータイプが変数valの値と同じ場合の処理と、
+      // そうでなかった場合の処理を指定している。
+      // まず、このif文の条件式として、dataメソッドでこのDOMの'data-category-type'の値を取得し、
+      // その値と変数valの値が同じ時、という条件を指定する。
+      // この条件を満たした時にはshowメソッドでその要素が表示されるように指定する。
+      // 条件を満たさなかった時にはhideメソッドでその要素が非表示になるように指定している。
+
+
       // 今回やるのはソート機能です。
       // selectボックスをクリックして言語を選び、その言語と関係のあるリストだけが表示されるプログラムです。
       // [処理の流れ]

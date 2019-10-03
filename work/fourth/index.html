@@ -47,6 +47,19 @@
     </div>
     <script src="../../common/js/jquery.js"></script>
     <script>
+      $(function(){
+        $('.menu__list li').hover(function(){
+          $(this).children('ul').stop().slideDown();
+        }, function(){
+          $(this).children('ul').stop().slideUp();
+        });
+      });
+      // menu__listクラスの子要素liにマウスをホバーした時に行われる処理をhoverメソッドで指定している。
+      // hoverメソッドの第一引数ーDOMの子要素ulを指定しslideDownメソッドでホバーした時にスライドしてメニューが表示されるようにしている。
+      // この時、stopメソッドでホバー中はアニメーション処理が行われないようにしている。
+      // 第二引数ーslideUpメソッドでカーソルを外した時にメニューが上にスライドしながら非表示になるように指定
+      // この時も他のアニメーション処理が行われないようにstopメソッドを使う。
+
       // 今回やるのはドロップメニューです。
       // メニューをhoverすると隠れている中のメニューが表示され、メニューから離れると中のメニューが非表示されるプログラムです。
       // [使用するメソッド]
